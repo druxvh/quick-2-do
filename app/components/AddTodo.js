@@ -2,15 +2,15 @@
 
 import { useState } from "react";
 
-export default function AddTodo({addTask}) {
+export default function AddTodo({onAddTask}) {
   
   const [task, setTask] = useState('');
 
   function handleSubmit(e){
     e.preventDefault()
-    let todotext = task.trim()
-    if(todotext != ''){
-      addTask(todotext)
+    let todoText = task.trim()
+    if(todoText != ''){
+      onAddTask(todoText)
       setTask("")
     }
   }
