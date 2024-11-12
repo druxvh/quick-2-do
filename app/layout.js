@@ -1,9 +1,8 @@
 import "./globals.css";
 
-
 export const metadata = {
-  title: "Quick Todo",
-  description: "Getting hands on Next",
+  title: "quick 2-do",
+  description: "A cool todo web-app",
 };
 
 export default function RootLayout({ children }) {
