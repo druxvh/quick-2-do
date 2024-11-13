@@ -2,18 +2,18 @@
 
 import { useState } from "react"
 import { RiDeleteBin6Line } from "react-icons/ri";
+import { MdOutlineCheck } from "react-icons/md";
 
 
-export default function Todo({text, onDelete}) {
+export default function Todo({text, isDone, onDelete, onToggleDone}) {
   const [showDelete, setShowDelete] = useState(false)
-  const [isDone, setIsDone] = useState(false)
 
-  const singleClick = () => {
+  const handleSingleClick = () => {
     setShowDelete(!showDelete)
   }
 
-  const doubleClick = () =>  {
-    setIsDone(!isDone)
+  const handleDoubleClick = () =>  {
+    onToggleDone()
   }
 
   const handleDelete = () => {
@@ -22,11 +22,17 @@ export default function Todo({text, onDelete}) {
 
   return (
     <div
-    onClick={singleClick}
-    onDoubleClick={doubleClick}
-    className={`flex items-center p-2 min-h-14 bg-gray-700 rounded-lg font-mono text-sm cursor-pointer relative
-    ${isDone ? "bg-gray-900 text-gray-400 line-through" : ""}
+    onClick={handleSingleClick}
+    onDoubleClick={handleDoubleClick}
+    className={`flex items-center p-2 min-h-14 rounded-lg font-mono text-sm cursor-pointer relative
+    ${isDone ? "bg-gray-900 text-gray-400 line-through" : "bg-gray-700"}
     `}>
+      
+      {isDone && 
+      <span className="absolute top-[-5px] left-[-5px] flex justify-center items-center size-[15px] bg-slate-200  rounded-full">
+        <MdOutlineCheck className="text-slate-900  size-3" />
+      </span>
+      }
 
       <span>{text}</span>
 
