@@ -37,11 +37,28 @@ export default function TodoWrapper() {
     );
   };
 
+  const handleClear = () => {
+    localStorage.clear();
+    setTodos([]);
+  };
+
   return (
-    <div className="mt-12">
+    <div className="mt-12 flex flex-col gap-5">
       <AddTodo onAddTask={addTodo} />
 
-      <div className="flex mt-8 flex-col-reverse gap-3">
+      {todos.length > 0 && (
+        <div className="flex justify-between text-xs font-mono">
+          <span>Todos: {todos.filter(todo => !todo.isDone).length}</span>
+          <button
+            className="hover:underline hover:border-gray-400 transition ease-in-out delay-100"
+            onClick={handleClear}
+          >
+            Clear
+          </button>
+        </div>
+      )}
+
+      <div className="flex flex-col-reverse gap-3">
         {todos == 0 ? (
           <NoTodo />
         ) : (
