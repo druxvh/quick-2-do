@@ -31,7 +31,7 @@ export default function Todo({text, onDelete}) {
       <span>{text}</span>
 
     {showDelete && !isDone && 
-      <button onClick={handleDelete} className="absolute right-0 h-full px-5 rounded-r-lg bg-red-700 hover:bg-red-800 hover:text-white transition ease-in-out delay-150 ">
+      <button onClick={handleDelete} className="absolute right-0 h-full px-5 rounded-r-lg bg-red-700 hover:bg-red-800 hover:text-white transition ease-in-out delay-150">
         <RiDeleteBin6Line className="size-4"/>
       </button>
     }
