@@ -1,18 +1,22 @@
+"use client";
+
 import Link from "next/link";
+import { MdArrowOutward } from "react-icons/md";
 
 export default function Footer() {
   return (
     <footer className="mb-3 absolute bottom-0 w-full">
-      <p className="text-white text-center text-[12px] font-mono">
-        built by{" "}
+      <div className="flex items-center justify-center text-white text-[12px] font-mono">
+        <p>built by</p>
         <Link
           href="https://www.x.com/druxvh"
           target="_blank"
-          className="hover:underline hover:text-gray-300 transition ease-in-out delay-300"
+          className="ml-[6px] flex underline hover:text-gray-300 transition ease-in-out delay-300"
         >
-          drx
+          <span>drx</span>
+          <MdArrowOutward className="size-2" />
         </Link>
-      </p>
+      </div>
     </footer>
   );
 }
